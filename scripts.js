@@ -17,7 +17,7 @@ function login() {
           let response = this.responseText.split(";");
           let name = "<div class='userData'>" + response[0] + "</div>";
           let table = "<table class='IATable'><tr><th>ID de la aplicación</th><th>Nombre de la aplicación</th><th> Descripción</th><th>Tipología</th><th>More info</th></tr>";       
-          let back = '<button onclick="backtologin()">Click me</button>';
+          let back = '<button onclick="backtologin()">Log out</button>';
           for(let i = 1; i < response.length - 1; i++){
             let id = ""
             table += "<tr>";
@@ -83,7 +83,7 @@ function moreinfo(id) {
         response = response[1].split(";"); // Se separa el listado de KPIs
         let name = "<div class='userData'>" + nombre + "</div>";
         let table = "<table class='IATable'><tr><th>Tipo de aplicación</th><th>MAE</th><th> RMSE</th><th>RMLSE</th><th>Prec</th><th>Recall</th><th>Acurracy</th><th>Sensitivity</th><th>Specificity</th><th>F_measure</th></tr>";       
-        let back = '<button class="logoff" onclick="backtologin(↩️)"></button>';
+        let back = '<button class="logoff" onclick="backtologin()">&#x21A9</button>';
         let confusion = ""; //Direccion a la matriz de confusion
         for(let i = 0; i < response.length; i++){
           table += "<tr>";
@@ -95,7 +95,7 @@ function moreinfo(id) {
             if(j == 0){
               if(elements[j] == "1"){//Clasificación
                 table += '<img alt="Clasificación" src="./img/clasif.png" width=10" height="10">';
-              } else if(elements[j] == "2"){//Regresión
+              } else if(elements[j] == "0"){//Regresión
                 table += '<img alt="Regresión" src="./img/regres.png" width=10" height="10">';
               }else{ //Other
                 table += '<img alt="Otros" src="./img/otrot.png" width=10" height="10">';
